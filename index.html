@@ -3,81 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PerfectU – Wykończenia i Remonty</title>
-  <meta name="description" content="PerfectU – Wykończenia mieszkań, remonty i usługi złotej rączki w Warszawie i okolicach.">
-  <link rel="stylesheet" href="style.css">
+  <title>PerfectU Wykończenia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #f4b400;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    /* Sidebar */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #f4b400;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <h1>PerfectU</h1>
-    <p>Wykończenia i remonty – kompleksowa obsługa od A do Z</p>
-    <nav>
-      <ul>
-        <li><a href="#o-nas">O nas</a></li>
-        <li><a href="#uslugi">Usługi</a></li>
-        <li><a href="#cennik">Cennik</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
+
+  <!-- Ikona menu -->
+  <span class="menu-icon" onclick="openMenu()">☰</span>
+
+  <!-- Menu boczne -->
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="closeMenu()">×</span>
+    <a href="#glowna">Główna</a>
+    <a href="#onas">O nas</a>
+    <a href="#cennik">Cennik</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <header id="glowna">
+    <h1>PerfectU Wykończenia</h1>
+    <p>Profesjonalne remonty i wykończenia wnętrz</p>
   </header>
 
-  <section id="o-nas" class="container">
+  <section id="onas">
     <h2>O nas</h2>
-    <p>Jesteśmy firmą z doświadczeniem w pracach wykończeniowych i remontowych. Zapewniamy kompleksową obsługę mieszkań i domów – od drobnych napraw po pełne remonty. Działamy szybko, solidnie i z dbałością o każdy detal.</p>
+    <p>
+      Zajmujemy się kompleksowo remontami i wykończeniami wnętrz. 
+      W swoim dorobku posiadamy wiele wykonanych prac zarówno dla osób prywatnych, jak i firm. 
+      Stawiamy na jakość, terminowość i indywidualne podejście do klienta.
+    </p>
   </section>
 
-  <section id="uslugi" class="container">
-    <h2>Nasze usługi</h2>
-    <ul class="services">
-      <li>Prace wykończeniowe wnętrz</li>
-      <li>Remonty mieszkań i domów</li>
-      <li>Zabudowy GK i sufity podwieszane</li>
-      <li>Malowanie, gładzie, szpachlowanie</li>
-      <li>Montaż armatury i sanitariatów</li>
-      <li>Usługi „złotej rączki”</li>
-    </ul>
-  </section>
+  <section id="cennik">
+    <h2>Cennik usług</h2>
 
-  <section id="cennik" class="container">
-    <h2>Cennik (przykładowy)</h2>
+    <h3>Prace malarskie</h3>
     <table>
-      <thead><tr><th>Usługa</th><th>Cena od (netto)</th></tr></thead>
-      <tbody>
-        <tr><td>Malowanie ścian</td><td>18 zł/m²</td></tr>
-        <tr><td>Gładź gipsowa</td><td>35 zł/m²</td></tr>
-        <tr><td>Zabudowa GK</td><td>100 zł/m²</td></tr>
-        <tr><td>Montaż sanitariatów</td><td>od 200 zł/szt.</td></tr>
-        <tr><td>Montaż drzwi</td><td>od 250 zł/szt.</td></tr>
-        <tr><td>Prace "złota rączka"</td><td>od 100 zł/godz.</td></tr>
-      </tbody>
+      <tr><td>Gruntowanie</td><td>8 zł/m²</td></tr>
+      <tr><td>Malowanie dwukrotne</td><td>20 zł/m²</td></tr>
+      <tr><td>Skrobanie ścian od starej farby</td><td>30 zł/m²</td></tr>
+      <tr><td>Malowanie grzejników</td><td>od 25 zł/żeberko</td></tr>
+      <tr><td>Malowanie drzwi dwustronnie</td><td>od 300 zł/szt.</td></tr>
+      <tr><td>Tapetowanie</td><td>od 75 zł/m²</td></tr>
+      <tr><td>Akrylowanie</td><td>od 8 zł/mb</td></tr>
+      <tr><td>Malowanie farbą olejną</td><td>od 25 zł/m²</td></tr>
+      <tr><td>Usuwanie tapet</td><td>od 30 zł/m²</td></tr>
     </table>
-    <p class="note">Powyższe ceny mają charakter orientacyjny. Skontaktuj się z nami po dokładną wycenę.</p>
+
+    <h3>Prace glazurnicze</h3>
+    <table>
+      <tr><td>Układanie płytek na ścianach (wymiar standardowy)</td><td>od 150 zł/m²</td></tr>
+      <tr><td>Układanie płytek na podłodze</td><td>od 170 zł/m²</td></tr>
+      <tr><td>Cięcie otworu w płytce</td><td>od 50 zł/szt.</td></tr>
+      <tr><td>Układanie mozaiki</td><td>od 280 zł/m²</td></tr>
+      <tr><td>Montaż cokołów z płytki</td><td>od 35 zł/mb</td></tr>
+      <tr><td>Szlif płytki pod kątem 45°</td><td>od 90 zł/mb</td></tr>
+      <tr><td>Szlif płytki jednostronny</td><td>od 25 zł/mb</td></tr>
+      <tr><td>Montaż silikonu</td><td>od 15 zł/mb</td></tr>
+    </table>
+
+    <h3>Prace elektryczne</h3>
+    <table>
+      <tr><td>Wykonanie punktu elektrycznego</td><td>od 150 zł/szt.</td></tr>
+      <tr><td>Wykonanie punktu oświetlenia</td><td>od 100 zł/szt.</td></tr>
+      <tr><td>Montaż gniazd i włączników</td><td>od 25 zł/szt.</td></tr>
+      <tr><td>Montaż oświetlenia, lamp, kinkietów</td><td>od 50 zł/szt.</td></tr>
+      <tr><td>Montaż skrzynki z bezpiecznikami</td><td>od 500 zł/szt.</td></tr>
+      <tr><td>Montaż oświetlenia LED</td><td>od 80 zł/mb</td></tr>
+    </table>
+
+    <h3>Prace hydrauliczne</h3>
+    <table>
+      <tr><td>Wykonanie hydroizolacji</td><td>od 30 zł/m²</td></tr>
+      <tr><td>Wykonanie punktu hydraulicznego</td><td>od 350 zł/pkt</td></tr>
+      <tr><td>Montaż zaworów</td><td>od 50 zł/szt.</td></tr>
+      <tr><td>Montaż baterii wannowej</td><td>od 200 zł/szt.</td></tr>
+      <tr><td>Demontaż baterii wannowej/umywalkowej</td><td>od 50 zł/pkt</td></tr>
+      <tr><td>Montaż wanny</td><td>od 500 zł/szt.</td></tr>
+      <tr><td>Demontaż wanny</td><td>od 150 zł/szt.</td></tr>
+      <tr><td>Montaż grzejnika</td><td>od 350 zł/szt.</td></tr>
+      <tr><td>Demontaż grzejnika</td><td>od 120 zł/szt.</td></tr>
+      <tr><td>Montaż stelaża podtynkowego</td><td>od 700 zł/szt.</td></tr>
+      <tr><td>Montaż miski wiszącej, przycisku i deski</td><td>od 250 zł/szt.</td></tr>
+    </table>
+
+    <h3>Usługi szpachlarskie - tynkarskie</h3>
+    <table>
+      <tr><td>Szpachlowanie ścian i sufitów</td><td>od 40 zł/m²</td></tr>
+      <tr><td>Montaż narożników aluminiowych</td><td>od 25 zł/mb</td></tr>
+      <tr><td>Tynkowanie</td><td>od 55 zł/m²</td></tr>
+      <tr><td>Skuwanie starych tynków</td><td>od 30 zł/m²</td></tr>
+      <tr><td>Gruntowanie ścian i sufitów</td><td>od 9 zł/m²</td></tr>
+    </table>
+
+    <h3>Podłogi</h3>
+    <table>
+      <tr><td>Układanie paneli podłogowych</td><td>od 50 zł/m²</td></tr>
+      <tr><td>Montaż listew przypodłogowych</td><td>od 25 zł/m²</td></tr>
+    </table>
   </section>
 
-  <section id="galeria" class="container">
-    <h2>Galeria realizacji</h2>
-    <p>Dodaj swoje zdjęcia do folderu <code>images/</code> i dopisz je poniżej według wzoru, aby pokazać je klientom.</p>
-    <div class="gallery">
-      <img src="images/realizacja1.jpg" alt="Realizacja PerfectU 1">
-      <img src="images/realizacja2.jpg" alt="Realizacja PerfectU 2">
-      <img src="images/perfectu_prysznic.jpg" alt="Realizacja- remont łazienki" style="max-width:100%; height:auto; border-radius:8px; box-shadow: 0 2px 10px rdba(0,0,0,0.1);">
-        <!-- Dodaj kolejne linie w tym miejscu -->
-    </div>
-  </section>
-
-  <section id="kontakt" class="container">
+  <section id="kontakt">
     <h2>Kontakt</h2>
-    <ul class="contact">
-      <li><strong>Telefon:</strong> 726&nbsp;435&nbsp;983</li>
-      <li><strong>E‑mail:</strong> perfectuwykonczenia@gmail.com</li>
-      <li><strong>Obszar działania:</strong> Warszawa i okolice</li>
-      <li><strong>Godziny pracy:</strong> Pon–Sob 8:00–18:00</li>
-    </ul>
+    <p>Skontaktuj się z nami, aby uzyskać indywidualną wycenę.</p>
+    <p>📞 Telefon: <strong>+48 123 456 789</strong></p>
+    <p>✉️ E-mail: <strong>biuro@perfectuwykonczenia.pl</strong></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 PerfectU. Wszystkie prawa zastrzeżone.</p>
+    <p>Znajdziesz nas na:</p>
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a> |
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <p>&copy; 2025 PerfectU Wykończenia</p>
   </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("sidebar").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+  </script>
+
 </body>
 </html>

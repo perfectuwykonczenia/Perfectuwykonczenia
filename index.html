@@ -3,108 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PerfectU Wykończenia i Remonty </title>
+  <title>PerfectU Wykończenia</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
     }
 
     header {
-      background: #333;
+      background-color: #1e1e1e;
       color: #fff;
-      padding: 20px;
+      padding: 15px 20px;
       text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #333;
-      border-bottom: 2px solid #f4b400;
-      padding-bottom: 5px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-
-    table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-    }
-
-    table tr:nth-child(even) {
-      background: #f9f9f9;
-    }
-
-    /* Sidebar */
-    .menu-icon {
+      font-size: 1.5em;
       position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      cursor: pointer;
-      z-index: 1001;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
-    .sidebar {
+    .menu-toggle {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Menu boczne */
+    .sidenav {
       height: 100%;
       width: 0;
       position: fixed;
       top: 0;
       right: 0;
-      background-color: #111;
+      background-color: #222;
       overflow-x: hidden;
       transition: 0.3s;
       padding-top: 60px;
-      z-index: 1000;
+      z-index: 1100;
     }
 
-    .sidebar a {
+    .sidenav a {
       padding: 10px 20px;
       text-decoration: none;
-      font-size: 20px;
-      color: white;
+      font-size: 18px;
+      color: #f1f1f1;
       display: block;
       transition: 0.2s;
     }
 
-    .sidebar a:hover {
-      background-color: #575757;
+    .sidenav a:hover {
+      background-color: #444;
     }
 
-    .close-btn {
+    .closebtn {
       position: absolute;
-      top: 20px;
-      right: 25px;
-      font-size: 30px;
+      top: 15px;
+      right: 20px;
+      font-size: 36px;
       cursor: pointer;
-      color: white;
+    }
+
+    main {
+      padding: 100px 20px 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+      margin-top: 40px;
+      color: #ffcc00;
+    }
+
+    .price-list {
+      margin: 10px 0 30px 0;
+      padding-left: 20px;
     }
 
     footer {
-      background: #333;
-      color: #fff;
+      background-color: #1e1e1e;
       text-align: center;
       padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
     }
 
     footer a {
-      color: #f4b400;
-      margin: 0 10px;
+      color: #ffcc00;
       text-decoration: none;
+      margin: 0 10px;
     }
 
     footer a:hover {
@@ -114,123 +107,126 @@
 </head>
 <body>
 
-  <!-- Ikona menu -->
-  <span class="menu-icon" onclick="openMenu()">☰</span>
-
-  <!-- Menu boczne -->
-  <div id="sidebar" class="sidebar">
-    <span class="close-btn" onclick="closeMenu()">×</span>
-    <a href="#glowna">Główna</a>
-    <a href="#onas">O nas</a>
-    <a href="#cennik">Cennik</a>
-    <a href="#kontakt">Kontakt</a>
-  </div>
-
-  <header id="glowna">
-    <h1>PerfectU Wykończenia</h1>
-    <p>Profesjonalne remonty i wykończenia wnętrz</p>
+  <header>
+    PerfectU Wykończenia
+    <span class="menu-toggle" onclick="openNav()">☰</span>
   </header>
 
-  <section id="onas">
-    <h2>O nas</h2>
-    <p>
-      Zajmujemy się kompleksowo remontami i wykończeniami wnętrz. 
-      W swoim dorobku posiadamy wiele wykonanych prac zarówno dla osób prywatnych, jak i firm. 
-      Stawiamy na jakość, terminowość i indywidualne podejście do klienta.
-    </p>
-  </section>
+  <!-- Menu boczne -->
+  <div id="mySidenav" class="sidenav">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+    <a href="#home">Główna</a>
+    <a href="#about">O nas</a>
+    <a href="#pricing">Cennik</a>
+    <a href="#contact">Kontakt</a>
+  </div>
 
-  <section id="cennik">
-    <h2>Cennik usług</h2>
+  <main>
+    <section id="home">
+      <h2>Witamy w PerfectU Wykończenia</h2>
+      <p>Profesjonalne remonty i wykończenia wnętrz – od A do Z.</p>
+    </section>
 
-    <h3>Prace malarskie</h3>
-    <table>
-      <tr><td>Gruntowanie</td><td>8 zł/m²</td></tr>
-      <tr><td>Malowanie dwukrotne</td><td>20 zł/m²</td></tr>
-      <tr><td>Skrobanie ścian od starej farby</td><td>30 zł/m²</td></tr>
-      <tr><td>Malowanie grzejników</td><td>od 25 zł/żeberko</td></tr>
-      <tr><td>Malowanie drzwi dwustronnie</td><td>od 300 zł/szt.</td></tr>
-      <tr><td>Tapetowanie</td><td>od 75 zł/m²</td></tr>
-      <tr><td>Akrylowanie</td><td>od 8 zł/mb</td></tr>
-      <tr><td>Malowanie farbą olejną</td><td>od 25 zł/m²</td></tr>
-      <tr><td>Usuwanie tapet</td><td>od 30 zł/m²</td></tr>
-    </table>
+    <section id="about">
+      <h2>O nas</h2>
+      <p>Zajmujemy się kompleksowo remontami i wykończeniami wnętrz. 
+         W swoim dorobku posiadamy wiele wykonanych prac zarówno dla osób prywatnych, jak i firm. 
+         Naszym celem jest jakość, terminowość i pełne zadowolenie klienta.</p>
+    </section>
 
-    <h3>Prace glazurnicze</h3>
-    <table>
-      <tr><td>Układanie płytek na ścianach (wymiar standardowy)</td><td>od 150 zł/m²</td></tr>
-      <tr><td>Układanie płytek na podłodze</td><td>od 170 zł/m²</td></tr>
-      <tr><td>Cięcie otworu w płytce</td><td>od 50 zł/szt.</td></tr>
-      <tr><td>Układanie mozaiki</td><td>od 280 zł/m²</td></tr>
-      <tr><td>Montaż cokołów z płytki</td><td>od 35 zł/mb</td></tr>
-      <tr><td>Szlif płytki pod kątem 45°</td><td>od 90 zł/mb</td></tr>
-      <tr><td>Szlif płytki jednostronny</td><td>od 25 zł/mb</td></tr>
-      <tr><td>Montaż silikonu</td><td>od 15 zł/mb</td></tr>
-    </table>
+    <section id="pricing">
+      <h2>Cennik</h2>
 
-    <h3>Prace elektryczne</h3>
-    <table>
-      <tr><td>Wykonanie punktu elektrycznego</td><td>od 150 zł/szt.</td></tr>
-      <tr><td>Wykonanie punktu oświetlenia</td><td>od 100 zł/szt.</td></tr>
-      <tr><td>Montaż gniazd i włączników</td><td>od 25 zł/szt.</td></tr>
-      <tr><td>Montaż oświetlenia, lamp, kinkietów</td><td>od 50 zł/szt.</td></tr>
-      <tr><td>Montaż skrzynki z bezpiecznikami</td><td>od 500 zł/szt.</td></tr>
-      <tr><td>Montaż oświetlenia LED</td><td>od 80 zł/mb</td></tr>
-    </table>
+      <h3>Prace malarskie</h3>
+      <ul class="price-list">
+        <li>Gruntowanie – 8 zł/m²</li>
+        <li>Malowanie dwukrotne – 20 zł/m²</li>
+        <li>Skrobanie ścian ze starej farby – 30 zł/m²</li>
+        <li>Malowanie grzejników – od 25 zł/żeberko</li>
+        <li>Malowanie drzwi dwustronnie – od 300 zł/szt.</li>
+        <li>Tapetowanie – od 75 zł/m²</li>
+        <li>Akrylowanie – od 8 zł/mb</li>
+        <li>Malowanie farbą olejną – od 25 zł/m²</li>
+        <li>Usuwanie tapet – od 30 zł/m²</li>
+      </ul>
 
-    <h3>Prace hydrauliczne</h3>
-    <table>
-      <tr><td>Wykonanie hydroizolacji</td><td>od 30 zł/m²</td></tr>
-      <tr><td>Wykonanie punktu hydraulicznego</td><td>od 350 zł/pkt</td></tr>
-      <tr><td>Montaż zaworów</td><td>od 50 zł/szt.</td></tr>
-      <tr><td>Montaż baterii wannowej</td><td>od 200 zł/szt.</td></tr>
-      <tr><td>Demontaż baterii wannowej/umywalkowej</td><td>od 50 zł/pkt</td></tr>
-      <tr><td>Montaż wanny</td><td>od 500 zł/szt.</td></tr>
-      <tr><td>Demontaż wanny</td><td>od 150 zł/szt.</td></tr>
-      <tr><td>Montaż grzejnika</td><td>od 350 zł/szt.</td></tr>
-      <tr><td>Demontaż grzejnika</td><td>od 120 zł/szt.</td></tr>
-      <tr><td>Montaż stelaża podtynkowego</td><td>od 700 zł/szt.</td></tr>
-      <tr><td>Montaż miski wiszącej, przycisku i deski</td><td>od 250 zł/szt.</td></tr>
-    </table>
+      <h3>Prace glazurnicze</h3>
+      <ul class="price-list">
+        <li>Układanie płytek na ścianach – od 150 zł/m²</li>
+        <li>Układanie płytek na podłodze – od 170 zł/m²</li>
+        <li>Cięcie otworu w płytce – od 50 zł/szt.</li>
+        <li>Układanie mozaiki – od 280 zł/m²</li>
+        <li>Montaż cokołów z płytki – od 35 zł/mb</li>
+        <li>Szlif płytki pod kątem 45° – od 90 zł/mb</li>
+        <li>Szlif płytki jednostronny – od 25 zł/mb</li>
+        <li>Montaż silikonu – od 15 zł/mb</li>
+      </ul>
 
-    <h3>Usługi szpachlarskie - tynkarskie</h3>
-    <table>
-      <tr><td>Szpachlowanie ścian i sufitów</td><td>od 40 zł/m²</td></tr>
-      <tr><td>Montaż narożników aluminiowych</td><td>od 25 zł/mb</td></tr>
-      <tr><td>Tynkowanie</td><td>od 55 zł/m²</td></tr>
-      <tr><td>Skuwanie starych tynków</td><td>od 30 zł/m²</td></tr>
-      <tr><td>Gruntowanie ścian i sufitów</td><td>od 9 zł/m²</td></tr>
-    </table>
+      <h3>Prace elektryczne</h3>
+      <ul class="price-list">
+        <li>Wykonanie punktu elektrycznego – od 150 zł/szt.</li>
+        <li>Wykonanie punktu oświetlenia – od 100 zł/szt.</li>
+        <li>Montaż gniazd i włączników – od 25 zł/szt.</li>
+        <li>Montaż oświetlenia (lampy, kinkiety) – od 50 zł/szt.</li>
+        <li>Montaż skrzynki z bezpiecznikami – od 500 zł/szt.</li>
+        <li>Montaż oświetlenia LED – od 80 zł/mb</li>
+      </ul>
 
-    <h3>Podłogi</h3>
-    <table>
-      <tr><td>Układanie paneli podłogowych</td><td>od 50 zł/m²</td></tr>
-      <tr><td>Montaż listew przypodłogowych</td><td>od 25 zł/m²</td></tr>
-    </table>
-  </section>
+      <h3>Prace hydrauliczne</h3>
+      <ul class="price-list">
+        <li>Wykonanie hydroizolacji – od 30 zł/m²</li>
+        <li>Wykonanie punktu hydraulicznego – od 350 zł/pkt</li>
+        <li>Montaż zaworów – od 50 zł/szt.</li>
+        <li>Montaż baterii wannowej – od 200 zł/szt.</li>
+        <li>Demontaż baterii wannowej/umywalkowej – od 50 zł/pkt</li>
+        <li>Montaż wanny – od 500 zł/szt.</li>
+        <li>Demontaż wanny – od 150 zł/szt.</li>
+        <li>Montaż grzejnika – od 350 zł/szt.</li>
+        <li>Demontaż grzejnika – od 120 zł/szt.</li>
+        <li>Montaż stelaża podtynkowego – od 700 zł/szt.</li>
+        <li>Montaż miski wiszącej, przycisku i deski – od 250 zł/szt.</li>
+      </ul>
 
-  <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Skontaktuj się z nami, aby uzyskać indywidualną wycenę.</p>
-    <p>📞 Telefon: <strong>+48 123 456 789</strong></p>
-    <p>✉️ E-mail: <strong>biuro@perfectuwykonczenia.pl</strong></p>
-  </section>
+      <h3>Usługi szpachlarskie / tynkarskie</h3>
+      <ul class="price-list">
+        <li>Szpachlowanie ścian i sufitów – od 40 zł/m²</li>
+        <li>Montaż narożników aluminiowych – od 25 zł/mb</li>
+        <li>Tynkowanie – od 55 zł/m²</li>
+        <li>Skuwanie starych tynków – od 30 zł/m²</li>
+        <li>Gruntowanie ścian i sufitów – od 9 zł/m²</li>
+      </ul>
+
+      <h3>Podłogi</h3>
+      <ul class="price-list">
+        <li>Układanie paneli podłogowych – od 50 zł/m²</li>
+        <li>Montaż listew przypodłogowych – od 25 zł/mb</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <p>📞 <a href="tel:726435983">726 435 983</a></p>
+      <p>📧 <a href="mailto:perfectuwykonczenia@gmail.com">perfectuwykonczenia@gmail.com</a></p>
+      <p>🔗 <a href="https://www.facebook.com/share/14MbR1o1Q27/?mibextid=wwXIfr" target="_blank">Facebook</a> | 
+         <a href="https://www.instagram.com/pu_wykonczenia?igsh=MW1jeWx0cmVwOHNmag%3D%3D&utm_source=qr" target="_blank">Instagram</a></p>
+      <p>NIP: 5213745991</p>
+    </section>
+  </main>
 
   <footer>
-    <p>Znajdziesz nas na:</p>
-    <a href="https://www.facebook.com/" target="_blank">Facebook</a> |
-    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-    <p>&copy; 2025 PerfectU Wykończenia</p>
+    &copy; 2025 PerfectU Wykończenia | 
+    <a href="tel:726435983">Zadzwoń</a> | 
+    <a href="mailto:perfectuwykonczenia@gmail.com">Napisz maila</a>
   </footer>
 
   <script>
-    function openMenu() {
-      document.getElementById("sidebar").style.width = "250px";
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
     }
-    function closeMenu() {
-      document.getElementById("sidebar").style.width = "0";
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
     }
   </script>
-
 </body>
 </html>
